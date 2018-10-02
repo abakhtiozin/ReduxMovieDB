@@ -1,0 +1,18 @@
+version: '3'
+services:
+  jenkins:
+    image: jenkins/jenkins
+    build: ./jenkins
+    container_name: jenkins
+    ports:
+    - "8181:8080"
+    - "8081:8081"
+    environment:
+    - JENKINS_ADMIN_LOGIN=admin
+    - JENKINS_ADMIN_PASSWORD=admin
+    volumes:
+    - jenkins-home:/var/jenkins_home
+    restart: always
+volumes:
+#  docker-dind:
+  jenkins-home:

@@ -1,4 +1,5 @@
 PODS:
+  - EarlGrey (1.15.0)
   - ReSwift (4.0.1)
   - RxCocoa (4.1.1):
     - RxSwift (~> 4.0)
@@ -11,6 +12,7 @@ PODS:
   - SDWebImage/Core (4.2.3)
 
 DEPENDENCIES:
+  - EarlGrey
   - ReSwift (~> 4.0)
   - RxCocoa (~> 4.0)
   - RxKeyboard
@@ -18,7 +20,8 @@ DEPENDENCIES:
   - SDWebImage (~> 4.0)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
+    - EarlGrey
     - ReSwift
     - RxCocoa
     - RxKeyboard
@@ -26,12 +29,13 @@ SPEC REPOS:
     - SDWebImage
 
 SPEC CHECKSUMS:
+  EarlGrey: 289a16cc7d08a54b962d72881b21e36d5103b549
   ReSwift: f4012c613e13da7398827fe5aebdb938eaed40a3
   RxCocoa: fd0862fd2df95fa55562ad28ffd2522c25eb4a85
   RxKeyboard: 28d984440671becc75350b1dfae7ae08d31076df
   RxSwift: c6e3b1c7b325c7d121cd4327e9d98b7ed746b570
   SDWebImage: 791bb72962b3492327ddcac4b1880bd1b5458431
 
-PODFILE CHECKSUM: d1cbeae9556ba8e42adfe585468d634913d55a74
+PODFILE CHECKSUM: 54e426b098b535f947dffa0efc8d44991b67249c
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3

@@ -9,7 +9,7 @@
 import ReSwift
 
 func fetchMovieGenres(state: MainState, store: Store<MainState>) -> Action? {
-    TMDB().fetchMovieGenres { result in
+    TMDB.shared.fetchMovieGenres { result in
         guard let result = result else { return }
 
         DispatchQueue.main.async {
@@ -26,7 +26,7 @@ func fetchMovieGenres(state: MainState, store: Store<MainState>) -> Action? {
 fileprivate func fetchNextUpcomingMoviesPage(state: MainState, store: Store<MainState>) -> Action? {
     guard !state.moviePages.isComplete else { return nil }
 
-    TMDB().fetchUpcomingMovies(page: mainStore.state.moviePages.currentPage + 1) { result in
+    TMDB.shared.fetchUpcomingMovies(page: mainStore.state.moviePages.currentPage + 1) { result in
         guard let result = result else { return }
 
         DispatchQueue.main.async {
@@ -53,7 +53,7 @@ fileprivate func fetchSearchMoviesPage(state: MainState, store: Store<MainState>
 
     let page = mainStore.state.moviePages.currentPage + 1
 
-    TMDB().searchMovies(query: query, page: page) { result in
+    TMDB.shared.searchMovies(query: query, page: page) { result in
         guard let result = result else { return }
 
         DispatchQueue.main.async {

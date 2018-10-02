@@ -8,13 +8,17 @@
 
 import UIKit
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+public class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
+    public var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        window = UIWindow()
+        self.window?.rootViewController = storyboard.instantiateInitialViewController()
+        self.window?.makeKeyAndVisible()
 
+        TMDB.shared.api = TMDBFetcherApi()
         mainStore.dispatch(fetchMovieGenres)
         mainStore.dispatch(fetchMoviesPage)
 
@@ -24,3 +28,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+class FakeAppDelegate: UIResponder, UIApplicationDelegate {
+
+    var window: UIWindow?
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        window = UIWindow()
+        self.window?.rootViewController = storyboard.instantiateInitialViewController()
+        self.window?.makeKeyAndVisible()
+
+        UIApplication.shared.statusBarStyle = .lightContent
+
+        return true
+    }
+
+    func resetApplicationForTesting() {
+
+    }
+}

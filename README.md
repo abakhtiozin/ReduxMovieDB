@@ -35,3 +35,18 @@ pod install
 ```
 6. Do NOT open the Xcode project directly, instead use the ReduxMovieDB.xcworkspace file to open the Xcode workspace.
 7. Build the project by ⌘ + R
+
+## Ciklum Research
+Module with EarlGrey tests - ReduxMovieDBEarlTests
+
+# Command-line build
+'cd' to ReduxMovieDB project root directory
+to start tests from command-line
+
+    xcodebuild -workspace ReduxMovieDB.xcworkspace -scheme ReduxMovieDB -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.0' test | xcpretty --test --color
+    
+# Jenkins build
+    docker-compose up
+    ./node_agent_start.sh -> run agent node on local mac machine
+    open http://localhost:8181
+    run job
